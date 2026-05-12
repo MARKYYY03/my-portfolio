@@ -19,7 +19,7 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="education">
+    <section id="education" className="education page-reveal">
       <div className="education-container">
         <div className="education-header">
           <p className="section-label">Background</p>

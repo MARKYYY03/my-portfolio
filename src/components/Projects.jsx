@@ -21,7 +21,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="projects">
+    <section id="projects" className="projects page-reveal">
       <div className="projects-container">
         <div className="projects-header">
           <p className="section-label">Work</p>

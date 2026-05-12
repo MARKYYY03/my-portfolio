@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import './Hero.css';
 
+const words = [
+  'Full-Stack Developer',
+  'Problem Solver',
+  'Tech Enthusiast',
+];
+
 export default function Hero() {
   const [displayText, setDisplayText] = useState('');
-  const words = [
-    'Full-Stack Developer',
-    'Problem Solver',
-    'Tech Enthusiast',
-  ];
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -36,7 +37,7 @@ export default function Hero() {
   }, [displayText, isDeleting, currentWordIndex]);
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero page-reveal">
       <div className="hero-content">
         <div className="hero-badge">
           <i className="fa-solid fa-circle" style={{ fontSize: '8px', color: '#22c55e' }}></i>

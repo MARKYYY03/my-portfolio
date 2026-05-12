@@ -7,7 +7,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="footer">
+    <footer className="footer page-reveal">
       <div className="footer-container">
         <p className="footer-text">
           Designed &amp; built by

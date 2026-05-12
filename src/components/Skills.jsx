@@ -45,7 +45,7 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="skills">
+    <section id="skills" className="skills page-reveal">
       <div className="skills-container">
         <div className="skills-header">
           <p className="section-label">Tech Stack</p>

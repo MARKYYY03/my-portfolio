@@ -9,7 +9,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="about">
+    <section id="about" className="about page-reveal">
       <div className="about-container">
         <div className="about-grid">
           <div className="about-emoji">
