@@ -39,6 +39,42 @@
   justify-content: center;
   font-size: 5rem;
   animation: fadeInScale 0.8s ease-out;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.emoji-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, var(--accent-dim), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.emoji-box:hover::before {
+  opacity: 1;
+}
+
+.emoji-box i {
+  color: var(--accent);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.emoji-box:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+}
+
+.emoji-box:hover i {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
 }
 
 .about-content {
@@ -46,7 +82,7 @@
 }
 
 .section-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -59,7 +95,7 @@
 }
 
 .section-label::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 2rem;
   height: 1px;
@@ -67,7 +103,7 @@
 }
 
 .section-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 700;
   margin-bottom: 1.5rem;

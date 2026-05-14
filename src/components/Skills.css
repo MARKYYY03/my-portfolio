@@ -1,12 +1,32 @@
 .skills {
   padding: 6rem 0;
   background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .skills-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .skills-header {
@@ -16,7 +36,7 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
@@ -40,6 +60,7 @@
   transition: all 0.3s ease;
   animation: fadeInUp 0.8s ease-out;
   animation-delay: calc(var(--i) * 0.1s);
+  position: relative;
 }
 
 .skill-card:hover {
@@ -55,17 +76,41 @@
   margin-bottom: 1.5rem;
 }
 
+/* Enhanced icon styles with unique colors */
 .skill-icon {
   width: 40px;
   height: 40px;
   border-radius: 0.5rem;
-  background: var(--accent-dim);
-  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.skill-icon-cyan {
+  background: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+}
+
+.skill-icon-purple {
+  background: rgba(168, 85, 247, 0.1);
+  color: #a855f7;
+}
+
+.skill-icon-blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.skill-icon-accent {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .skill-title {
@@ -82,43 +127,189 @@
 
 .skill-item {
   margin-bottom: 1rem;
+  position: relative;
+  transition: transform 0.2s ease;
 }
 
 .skill-item:last-child {
   margin-bottom: 0;
 }
 
+/* Hover effect on skill items */
+.skill-item:hover {
+  transform: translateX(4px);
+}
+
+/* Tooltip on hover */
+.skill-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: -45px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform: translateY(5px);
+  border: 1px solid var(--border);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .skill-name-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.375rem;
+  margin-bottom: 0.5rem;
 }
 
 .skill-name {
   font-size: 0.88rem;
   color: var(--text-secondary);
-}
-
-.skill-pct {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--accent);
   font-weight: 500;
 }
 
+/* Badge-style percentage indicators */
+.skill-badge {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.skill-badge-expert {
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.skill-badge-advanced {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.skill-badge-intermediate {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.skill-badge-beginner {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.skill-item:hover .skill-badge {
+  transform: scale(1.05);
+}
+
 .progress-bar {
-  height: 5px;
+  height: 6px;
   border-radius: 9999px;
   background: var(--bg-secondary);
   overflow: hidden;
+  position: relative;
 }
 
+/* Color-coded progress bars with gradients and glow */
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), #a78bfa);
   border-radius: 9999px;
-  transition: width 1s ease-out;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0;
+  animation: fillBar 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+  position: relative;
+}
+
+@keyframes fillBar {
+  to {
+    width: var(--skill-width);
+  }
+}
+
+/* Expert level - Vibrant cyan/electric blue */
+.progress-fill-expert {
+  background: linear-gradient(90deg, #0891b2, #06b6d4, #22d3ee);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Advanced level - Purple/indigo */
+.progress-fill-advanced {
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #c084fc);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+}
+
+/* Intermediate level - Softer purple/blue */
+.progress-fill-intermediate {
+  background: linear-gradient(90deg, #6366f1, #818cf8, #a5b4fc);
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+}
+
+/* Beginner level - Muted gray/slate */
+.progress-fill-beginner {
+  background: linear-gradient(90deg, #64748b, #94a3b8, #cbd5e1);
+  box-shadow: 0 0 6px rgba(148, 163, 184, 0.2);
+}
+
+/* Enhanced glow on hover */
+.skill-item:hover .progress-fill-expert {
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.6);
+}
+
+.skill-item:hover .progress-fill-advanced {
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.6);
+}
+
+.skill-item:hover .progress-fill-intermediate {
+  box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
+}
+
+.skill-item:hover .progress-fill-beginner {
+  box-shadow: 0 0 12px rgba(148, 163, 184, 0.4);
+}
+
+/* Shimmer effect on progress bars */
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 @keyframes fadeInUp {
@@ -129,5 +320,13 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .skill-item::after {
+    white-space: normal;
+    max-width: 200px;
   }
 }

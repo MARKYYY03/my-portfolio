@@ -1,14 +1,10 @@
-import { useState, useEffect } from 'react';
-import './Hero.css';
+import { useState, useEffect } from "react";
+import "./Hero.css";
 
-const words = [
-  'Full-Stack Developer',
-  'Problem Solver',
-  'Tech Enthusiast',
-];
+const words = ["Full-Stack Developer", "Problem Solver", "Tech Enthusiast"];
 
 export default function Hero() {
-  const [displayText, setDisplayText] = useState('');
+  const [displayText, setDisplayText] = useState("");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -39,13 +35,9 @@ export default function Hero() {
   return (
     <section id="home" className="hero page-reveal">
       <div className="hero-content">
-        <div className="hero-badge">
-          <i className="fa-solid fa-circle" style={{ fontSize: '8px', color: '#22c55e' }}></i>
-          Available for OJT &amp; Internships
-        </div>
-
         <h1 className="hero-title">
-          Hi, I'm<br />
+          Hi, I'm
+          <br />
           <span className="accent">Mark Aducal.</span>
         </h1>
 
@@ -55,8 +47,9 @@ export default function Hero() {
         </div>
 
         <p className="hero-description">
-          A 4th-year BSIT student at Gordon College, building real-world web systems with a focus on clean code,
-          scalable backends, and intuitive user experiences.
+          A 4th-year BSIT student at Gordon College, building real-world web
+          systems with a focus on clean code, scalable backends, and intuitive
+          user experiences.
         </p>
 
         <div className="hero-buttons">
