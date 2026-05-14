@@ -1,4 +1,5 @@
 import "./About.css";
+import profilePhoto from "../assets/photo-removebg-preview.png";
 
 export default function About() {
   const skills = [
@@ -13,8 +14,12 @@ export default function About() {
       <div className="about-container">
         <div className="about-grid">
           <div className="about-emoji">
-            <div className="emoji-box">
-              <i className="fa-solid fa-laptop-code"></i>
+            <div className="profile-image-box">
+              <img
+                src={profilePhoto}
+                alt="Mark Aducal"
+                className="profile-image"
+              />
             </div>
           </div>
 
