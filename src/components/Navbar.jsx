@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import './Navbar.css';
+import { useState } from "react";
+import "./Navbar.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,15 +12,23 @@ export default function Navbar() {
     setIsDark(!isDark);
     const html = document.documentElement;
     if (isDark) {
-      html.setAttribute('data-theme', 'light');
-      localStorage.setItem('theme', 'light');
+      html.setAttribute("data-theme", "light");
+      localStorage.setItem("theme", "light");
     } else {
-      html.setAttribute('data-theme', 'dark');
-      localStorage.setItem('theme', 'dark');
+      html.setAttribute("data-theme", "dark");
+      localStorage.setItem("theme", "dark");
     }
   };
 
-  const navLinks = ['about', 'skills', 'projects', 'education', 'contact'];
+  const navLinks = [
+    "about",
+    "skills",
+    "projects",
+    "blog",
+    "certificates",
+    "education",
+    "contact",
+  ];
 
   return (
     <nav id="navbar" className="navbar">
@@ -32,7 +40,9 @@ export default function Navbar() {
         <ul className="navbar-links">
           {navLinks.map((link) => (
             <li key={link}>
-              <a href={`#${link}`}>{link.charAt(0).toUpperCase() + link.slice(1)}</a>
+              <a href={`#${link}`}>
+                {link.charAt(0).toUpperCase() + link.slice(1)}
+              </a>
             </li>
           ))}
         </ul>
@@ -44,12 +54,12 @@ export default function Navbar() {
             onClick={toggleTheme}
             aria-label="Toggle theme"
           >
-            <i className={`fa-solid fa-${isDark ? 'moon' : 'sun'}`}></i>
+            <i className={`fa-solid fa-${isDark ? "moon" : "sun"}`}></i>
           </button>
 
           <button
             id="hamburger"
-            className={`hamburger ${isOpen ? 'active' : ''}`}
+            className={`hamburger ${isOpen ? "active" : ""}`}
             onClick={toggleMobileNav}
             aria-label="Open menu"
           >
@@ -63,11 +73,7 @@ export default function Navbar() {
       {isOpen && (
         <div id="navMobile" className="nav-mobile">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link}`}
-              onClick={closeMobileNav}
-            >
+            <a key={link} href={`#${link}`} onClick={closeMobileNav}>
               {link.charAt(0).toUpperCase() + link.slice(1)}
             </a>
           ))}

@@ -4,28 +4,13 @@
 }
 
 .about-container {
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-.about-emoji {
-  display: flex;
-  justify-content: center;
+.about-content-full {
+  text-align: center;
 }
 
 .emoji-box {
@@ -140,10 +125,6 @@
   }
 }
 
-.about-content {
-  animation: fadeInRight 0.8s ease-out 0.2s both;
-}
-
 .section-label {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.75rem;
@@ -154,6 +135,7 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -186,6 +168,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1.5rem;
+  justify-content: center;
 }
 
 .skill-badge {
