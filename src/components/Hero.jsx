@@ -58,13 +58,13 @@ export default function Hero() {
               </h2>
 
               <p className="hero-tagline">
-                <i className="fa-solid fa-code"></i> 3+ Projects Shipped
+                <i className="fa-solid fa-code"></i> 2 Projects Shipped
               </p>
 
               <p className="hero-description">
-                I'm Mark Aducal, a 4th-year BSIT student at Gordon College in
-                Olongapo City. Currently on OJT as a web developer, I enjoy
-                designing systems that solve real problems.
+                "I'm Mark Aducal, a BSIT graduate from Gordon College in
+                Olongapo City. Working as a web developer, I enjoy designing
+                systems that solve real problems."
               </p>
 
               <p className="hero-description">

@@ -35,6 +35,7 @@ export default function Navbar() {
       <div className="navbar-container">
         <a href="#" className="navbar-logo">
           mark<span className="accent">.</span>aducal
+          <span className="accent">.</span>dev
         </a>
 
         <ul className="navbar-links">

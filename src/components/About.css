@@ -13,6 +13,30 @@
   text-align: center;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+.about-text-content {
+  text-align: left;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-text-content {
+    text-align: center;
+  }
+}
+
 .emoji-box {
   width: 260px;
   height: 260px;
@@ -204,4 +228,110 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Profile section styling */
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme-based photo styling */
+.theme-photo {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+}
+
+.theme-photo.dark {
+  animation: photoFade 0.6s ease-out;
+}
+
+.theme-photo.light {
+  animation: photoFade 0.6s ease-out;
+}
+
+.theme-indicator {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.profile-image-box:hover .theme-indicator {
+  opacity: 1;
+  bottom: -2.5rem;
+}
+
+.theme-indicator i {
+  color: var(--accent);
+  font-size: 0.875rem;
+}
+
+/* Animation for theme photo transitions */
+@keyframes photoFade {
+  from {
+    opacity: 0;
+    transform: scale(0.95) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes photoSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes photoPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+  }
+}
+
+/* Smooth photo transition on theme change */
+.theme-photo.transitioning {
+  animation: photoPulse 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Profile image transitions */
+.profile-image {
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.profile-image.theme-changing {
+  animation: photoFade 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
